@@ -7,9 +7,11 @@ jobs:
     steps:
       - name: Pull and save images
         run: |
-          docker pull zabbix/zabbix-server-mysql:lts
-          docker pull zabbix/zabbix-web-nginx-mysql:lts
-          docker save -o zabbix-6.4.tar zabbix/zabbix-server-mysql:lts zabbix/zabbix-web-nginx-mysql:lts
+          docker pull zabbix/zabbix-server-mysql:ubuntu-6.4-latest
+          docker pull zabbix/zabbix-web-nginx-mysql:ubuntu-6.4-latest
+          docker save -o zabbix-6.4.tar \
+            zabbix/zabbix-server-mysql:ubuntu-6.4-latest \
+            zabbix/zabbix-web-nginx-mysql:ubuntu-6.4-latest
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
