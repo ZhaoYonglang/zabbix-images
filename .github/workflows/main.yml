@@ -1,15 +1,15 @@
 name: Export Zabbix Images
 on:
-  workflow_dispatch:   # 手动触发
+  workflow_dispatch:
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Pull and save images
         run: |
-          docker pull zabbix/zabbix-server-mysql:6.4
-          docker pull zabbix/zabbix-web-nginx-mysql:6.4
-          docker save -o zabbix-6.4.tar zabbix/zabbix-server-mysql:6.4 zabbix/zabbix-web-nginx-mysql:6.4
+          docker pull zabbix/zabbix-server-mysql:6.4.14
+          docker pull zabbix/zabbix-web-nginx-mysql:6.4.14
+          docker save -o zabbix-6.4.tar zabbix/zabbix-server-mysql:6.4.14 zabbix/zabbix-web-nginx-mysql:6.4.14
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
